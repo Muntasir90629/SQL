@@ -1,0 +1,44 @@
+create table student(
+s_id varchar(10) primary key,
+name varchar(10),
+dept varchar(5)
+)
+
+insert into student values('c_163048','sayem',  'CSE')
+insert into student values('c_163046','Hasan',  'CSE')
+insert into student values('c_163047','Rakib',  'ETE')
+insert into student values('c_163058','Jony',   'EEE')
+
+create table course(
+c_id varchar(10) primary key,
+c_name varchar(10),
+dept varchar(5)
+)
+
+insert into course values('c_101', 'Math',     'CSE')
+insert into course values('c_102', 'Java',     'CSE')
+insert into course values('ET_103', 'Math_2',  'ETE')
+insert into course values('EE_104', 'URFL',    'EEE')
+insert into course values('c_105', 'Database',  'CSE')
+
+create table registration(
+r_student_id varchar(10),
+r_course_id varchar(10),
+reg_date date default sysdate,
+foreign key (r_student_id) references student(s_id),
+foreign key (r_course_id) references course(c_id)
+)
+select*from student
+
+select*from course
+drop table registration
+select*from registration
+
+insert into registration values('c_163067','EE_104',sysdate)
+insert into registration values('c_163067','c_105',sysdate)
+
+update registration set REG_DATE='06-SEP-17'
+where R_STUDENT_ID=(select R_STUDENT_ID from registration where R_STUDENT_ID like '%45')
+
+update course set credit= credit+1
+I have learned uses of subqueries in this lab.Subqueries can be used with the operators like SELECT, INSERT, UPDATE, DELETE etc.

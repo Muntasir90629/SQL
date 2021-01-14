@@ -1,0 +1,21 @@
+task1:
+create table Employees(
+EmployeeID varchar(8),
+Name varchar(10),
+JobID varchar(10),
+dept varchar(10)
+salary numeric(6,2),
+hiringDate date
+)
+
+//desc Employees(FOR SEEING THE TABLE)
+
+task2:
+INSERT INTO Employees VALUES('5','Liton','12345','Engg','1234','22-JUL-18');
+
+task3:
+
+select (hiringdate+20) "NewHiringDate"
+from employees
+select (hiringdate-30) "NewHiringDate"
+from employees

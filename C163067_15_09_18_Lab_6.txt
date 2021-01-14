@@ -1,0 +1,39 @@
+create table customer(
+acc_no int primary key,
+name varchar(10),
+acc_type varchar(10),
+address varchar(20)
+)
+drop table loan;
+create table bank(
+branch_id int primary key,
+name varchar(10),
+location varchar(20)
+)
+create table loan(
+acc_no int,
+branch_id int,
+ammount int check (ammount >=100 and ammount <= 1000000), 
+Loan_date date,
+duration varchar(20),
+foreign key (acc_no) references customer(acc_no),
+foreign key (branch_id) references bank(branch_id)
+)
+insert into customer values('163045','Bapin','vip' , 'kotowali')
+insert into customer values('163067','sifat','Deposite' , 'Market')
+insert into customer values('163048','Jakir','Current','CDA')
+insert into customer values('163049','Hasan','saving','new market')
+
+
+insert into bank values('101', 'Chawkbazar',     'Chawkbazar,Ctg')
+insert into bank values('103', 'Agrabad',     'Agrabad,Ctg')
+insert into bank values('104', 'Nala para',  'New market,Ctg')
+insert into bank values('105', 'jamal khan',    'jamal khan,Ctg')
+
+insert into loan values(163042,101,999,SYSDATE,'1 year')
+insert into loan values(163077,103,10000,SYSDATE,'2 year')
+insert into loan values(163067,104,50000,SYSDATE,'3 year')
+insert into loan values(163059,105,200000,SYSDATE,'4 year')
+select *from loan
+SELECT customer.acc_no,customer.name,customer.address,loan.ammount,loan.duration from customer join loan on (loan.ammount<1001)
+create view view_namee as  SELECT customer.acc_no,customer.name,customer.address,loan.ammount,loan.duration from customer join loan on (loan.acc_no=customer.acc_no)

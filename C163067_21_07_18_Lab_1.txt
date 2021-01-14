@@ -1,0 +1,22 @@
+task1: select * from tabs
+
+task2: select table_name,status from tabs
+
+task3: select table_name,status,num rows from tabs
+
+task4:  select table_name,status,num rows from tabs
+	where num_rows>2000
+
+task5: select table_name,status,num rows+20 from tabs
+	where num_rows>2000
+
+task6: select table_name, status, num_rows+20 ,(MAX_TRANS||'--'||MAX_EXTENTS)NEW_MAX from tabs
+	where num_rows>2000
+
+task7: select table_name, status, num_rows+20 ,(MAX_TRANS||'--'||MAX_EXTENTS)NEW_MAX from tabs
+	where num_rows>2000 and num_rows=1 and
+
+task8:  select table_name, status, num_rows+20 ,(MAX_TRANS||'--'||MAX_EXTENTS)NEW_MAX from tabs
+	where num_rows>2000 and table_name like 'O%'
+
+task8:

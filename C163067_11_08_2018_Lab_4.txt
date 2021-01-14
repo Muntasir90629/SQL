@@ -1,0 +1,37 @@
+create table Food(
+Food_Id varchar (10),
+Food_name varchar (10),
+Category varchar (10),
+price_KG numeric (6,2),
+primary key(food_id ) )
+drop table Food
+select*
+from food
+
+insert into FOOD values ('501','Mango','fruit', '100')
+insert into FOOD values ('502','Orange','fruit', '150')
+insert into FOOD values ('503','Apple','fruit', '180')
+insert into FOOD values ('504','grapes','fruit', '140')
+insert into FOOD values ('505','Multa','fruit', '120')
+insert into FOOD values ('506','Bannana','fruit', '40')
+
+create table customer(
+c_name varchar (10),
+c_number varchar (11),
+location varchar (16)
+primary key )
+
+insert into customer values ('sifat','015321****', 'cokhbazar')
+insert into customer values ('YASIR','017341****', 'jamal khan')
+insert into customer values ('zahid','018981****', 'muradpur')
+insert into customer values ('fahad','0176431***', 'agrabad')
+insert into customer values ('rakib','019161****', 'kotowali')
+select*
+from customer
+
+create table order(
+quantity numeric (10),
+order_date datetime (10),
+foreign key(order_id) reference food (food_id),
+ foreign key (c_number) reference customer(c_number)
+)
